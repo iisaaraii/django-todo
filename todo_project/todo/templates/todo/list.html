@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+
+    {% for task in tasks %}
+        <form method="POST" action="{% url 'update_task' task.id %}">
+            {% csrf_token %}
+            <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+            {{ task.title }}
+        </form>
+    {% empty %}
+        <p>No tasks yet!</p>
+    {% endfor %}
+</body>
+</html>
