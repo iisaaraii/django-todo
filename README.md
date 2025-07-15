@@ -10,8 +10,10 @@ This is a basic task-tracking web application built using the Django framework. 
 
 ##How to Run This Project
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/django-todo.git
-cd django-todo
- 
+##Demo
+
+To see a quick preview, run the app locally and visit:
+
+- Homepage: http://127.0.0.1:8000/
+- Admin Panel: http://127.0.0.1:8000/admin
+
