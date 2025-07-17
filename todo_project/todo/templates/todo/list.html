@@ -6,14 +6,17 @@
 <body>
     <h1>My Tasks</h1>
 
-    {% for task in tasks %}
-        <form method="POST" action="{% url 'update_task' task.id %}">
-            {% csrf_token %}
-            <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
-            {{ task.title }}
-        </form>
-    {% empty %}
-        <p>No tasks yet!</p>
-    {% endfor %}
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }}
+                {% if task.completed %}✔️{% else %}❌{% endif %}
+            </li>
+        {% empty %}
+            <p>No tasks yet!</p>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_task' %}">+ Add Task</a>
 </body>
 </html>
